@@ -1,0 +1,11 @@
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\bin\Debug\Parcial2.exe.config
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\bin\Debug\Parcial2.exe
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\bin\Debug\Parcial2.pdb
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.csproj.AssemblyReference.cache
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.Conversor.resources
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.Properties.Resources.resources
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.csproj.GenerateResource.cache
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.csproj.CoreCompileInputs.cache
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.exe
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.pdb
+C:\Users\neish\source\repos\ds4\Parcial2\Parcial2\obj\Debug\Parcial2.exe.config
