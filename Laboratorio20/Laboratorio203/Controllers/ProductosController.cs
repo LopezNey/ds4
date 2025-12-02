@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -46,6 +47,8 @@ namespace Laboratorio203.Controllers
                             {
                                 modelo = encontrado;
                                 ViewBag.Mensaje = "Registro encontrado, puede modificar y guardar.";
+
+                                ModelState.Clear();
                             }
                         }
                         break;
@@ -173,5 +176,48 @@ namespace Laboratorio203.Controllers
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public ContentResult InfoBaseDatos()
+        {
+            try
+            {
+                using (var con = new SqlConnection(connectionString))
+                using (var cmd = new SqlCommand(
+                    "SELECT DB_NAME() AS BaseDeDatos, @@SERVERNAME AS Servidor; SELECT TOP 10 ID, NOMBRE, PRECIO, STOCK FROM LAPTOPS;",
+                    con))
+                {
+                    con.Open();
+                    var sb = new StringBuilder();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            sb.AppendLine("Servidor: " + reader["Servidor"]);
+                            sb.AppendLine("Base de datos: " + reader["BaseDeDatos"]);
+                            sb.AppendLine();
+                        }
+
+                        if (reader.NextResult())
+                        {
+                            sb.AppendLine("Registros en LAPTOPS (TOP 10):");
+                            while (reader.Read())
+                            {
+                                sb.AppendLine(
+                                    $"ID={reader["ID"]}, NOMBRE={reader["NOMBRE"]}, PRECIO={reader["PRECIO"]}, STOCK={reader["STOCK"]}");
+                            }
+                        }
+                    }
+
+                    return Content(sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content("ERROR: " + ex.Message);
+            }
+        }
     }
+
+
 }
