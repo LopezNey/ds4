@@ -1,0 +1,47 @@
+﻿@model Laboratorio203.Models.Laptop
+
+@{
+    ViewBag.Title = "Laboratorio 20-3 - Productos (Laptops)";
+}
+
+<h2>Laboratorio 20-3 - Productos (Laptops)</h2>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div style="color: green">@ViewBag.Mensaje</div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div style="color: red">@ViewBag.Error</div>
+}
+
+@using (Html.BeginForm("Index", "Productos", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(m => m.Id)</td>
+            <td>@Html.TextBoxFor(m => m.Id, new { type = "number", min = "0" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Nombre)</td>
+            <td>@Html.TextBoxFor(m => m.Nombre)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Precio)</td>
+            <td>@Html.TextBoxFor(m => m.Precio, new { type = "number", step = "0.01" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Stock)</td>
+            <td>@Html.TextBoxFor(m => m.Stock, new { type = "number", min = "0" })</td>
+        </tr>
+    </table>
+
+    <br />
+
+    <button type="submit" name="accion" value="Buscar">Buscar</button>
+    <button type="submit" name="accion" value="Nuevo">Nuevo</button>
+    <button type="submit" name="accion" value="Guardar">Guardar</button>
+    <button type="submit" name="accion" value="Eliminar">Eliminar</button>
+    <button type="submit" name="accion" value="Cancelar">Cancelar</button>
+}

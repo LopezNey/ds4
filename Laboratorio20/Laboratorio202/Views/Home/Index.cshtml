@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div class="row">
+        @{
+            ViewBag.Title = "Laboratorio 20-2 - Matriz N x N";
+            int? n = ViewBag.N as int?;
+            int[,] matriz = ViewBag.Matriz as int[,];
+        }
+
+        <h2>Matriz N x N con diagonal inversa</h2>
+
+        <form method="post" action="/Home/Index">
+            <label for="n">Ingrese N (tamaño de la matriz):</label>
+            <input type="number" id="n" name="n" min="1" required />
+            <button type="submit">Generar matriz</button>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red">@ViewBag.Error</p>
+        }
+
+        @if (matriz != null && n.HasValue)
+        {
+            <h3>Matriz de @n x @n</h3>
+            <table border="1" cellpadding="5" cellspacing="0">
+                @for (int i = 0; i < n; i++)
+                {
+                    <tr>
+                        @for (int j = 0; j < n; j++)
+                        {
+                            <td>@matriz[i, j]</td>
+                        }
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</main>

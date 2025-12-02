@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Parcial3.Models.Caso>
+
+@{
+    ViewBag.Title = "Casos";
+}
+
+<h2>Casos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo caso", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Cliente</th>
+        <th>Abogado</th>
+        <th>Título</th>
+        <th>Detalles</th>
+        <th>Fecha inicio</th>
+        <th>Fecha vencimiento</th>
+        <th>Estado</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Cliente</td>
+            <td>@item.Abogado</td>
+            <td>@item.Titulo</td>
+            <td>@item.Descripcion</td>
+            <td>@item.FechaInicio.ToShortDateString()</td>
+            <td>@(item.FechaVencimiento.HasValue ? item.FechaVencimiento.Value.ToShortDateString() : "")</td>
+            <td>@item.Estado</td>
+        </tr>
+    }
+</table>

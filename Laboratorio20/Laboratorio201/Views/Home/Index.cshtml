@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div class="row">
+        @{
+            ViewBag.Title = "Laboratorio 20-1 - Tabla de multiplicar";
+        }
+
+        <h2>Tabla de multiplicar hasta el 25</h2>
+
+        <form method="post" action="/Home/Index">
+            <label for="numero">Ingrese un número:</label>
+            <input type="number" id="numero" name="numero" required />
+            <button type="submit">Mostrar tabla</button>
+        </form>
+
+        @if (ViewBag.Tabla != null)
+        {
+            <h3>Tabla del @ViewBag.Numero</h3>
+            <ul>
+                @foreach (string linea in ViewBag.Tabla)
+                {
+                    <li>@linea</li>
+                }
+            </ul>
+        }
+    </div>
+</main>
