@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Ingresos";
+}
+
+<h2>Ingresos por mes</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Año</th>
+            <th>Mes</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Anio</td>
+                <td>@item.Mes</td>
+                <td>$@item.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>

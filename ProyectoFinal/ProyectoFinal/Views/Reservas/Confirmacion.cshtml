@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Confirmacion";
+}
+
+<div class="alert alert-success">
+    <h2>Reserva creada ✅</h2>
+    <p>Tu número de reserva es: <strong>#@ViewBag.ReservaId</strong></p>
+    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Volver al inicio</a>
+</div>
+

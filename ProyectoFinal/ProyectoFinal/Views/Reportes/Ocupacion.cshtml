@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Ocupacion";
+}
+
+<h2>Ocupación de slots</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Estado</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Estado</td>
+                <td>@item.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

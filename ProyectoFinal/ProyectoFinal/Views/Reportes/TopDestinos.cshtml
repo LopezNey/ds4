@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "TopDestinos";
+}
+
+<h2>Top destinos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Destino</th>
+            <th>Total reservas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Destino</td>
+                <td>@item.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Content/site.css" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Transporte Panamá", "Index", "Home", null, new { @class = "navbar-brand" })
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Cotizar", "Index", "Cotizar", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Flota", "Flota", "Catalogo", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Destinos", "Destinos", "Catalogo", null, new { @class = "nav-link" })</li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Reportes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Top destinos", "TopDestinos", "Reportes", null, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Ingresos", "Ingresos", "Reportes", null, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Ocupación", "Ocupacion", "Reportes", null, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @* @Scripts.Render("~/bundles/jquery") *@
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

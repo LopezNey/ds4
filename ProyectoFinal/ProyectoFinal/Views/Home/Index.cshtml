@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<div class="hero-panama">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Transporte Turístico en Panamá</h1>
+            <p>Cotiza, agenda y reserva transporte privado para turismo.</p>
+
+            <a class="btn-hero" href="@Url.Action("Index","Cotizar")">
+                Cotizar ahora
+            </a>
+        </div>
+    </div>
+</div>
+
+<a class="whatsapp-float"
+   href="https://wa.me/50767147038?text=Hola%2C%20quiero%20cotizar%20transporte%20tur%C3%ADstico%20en%20Panam%C3%A1."
+   target="_blank" rel="noopener">
+    WhatsApp
+</a>
+
+<style>
+    .hero-panama {
+        min-height: 520px;
+        border-radius: 18px;
+        overflow: hidden;
+        margin-top: 28px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.10);
+        background-image: url('/Content/img/panama-hero.jpg') !important;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-overlay {
+        min-height: 520px;
+        background: linear-gradient(90deg, rgba(4,20,46,.85), rgba(4,20,46,.35));
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-content {
+        padding: 48px;
+        max-width: 720px;
+        color: #fff;
+    }
+
+        .hero-content h1 {
+            font-size: 56px;
+            line-height: 1.05;
+            margin-bottom: 14px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            opacity: .95;
+            margin-bottom: 22px;
+        }
+
+    .btn-hero {
+        background: #ffcc00;
+        color: #1b1f24;
+        border: none;
+        padding: 12px 22px;
+        border-radius: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 10px 22px rgba(255,204,0,.25) !important;
+    }
+
+        .btn-hero:hover {
+            background: #ffd633;
+            color: #1b1f24;
+            text-decoration: none;
+        }
+
+    .whatsapp-float {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 99999;
+        background: #25D366;
+        color: #fff;
+        border-radius: 999px;
+        padding: 14px 18px;
+        text-decoration: none;
+        font-weight: 800;
+        box-shadow: 0 12px 22px rgba(0,0,0,.18) !important;
+    }
+
+        .whatsapp-float:hover {
+            background: #1ebe5d;
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+</style>
+

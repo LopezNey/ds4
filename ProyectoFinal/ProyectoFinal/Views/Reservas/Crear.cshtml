@@ -1,0 +1,77 @@
+﻿@model ProyectoFinal.Models.ReservaCreateViewModel
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reservar transporte</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+@using (Html.BeginForm("Crear", "Reservas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Datos del cliente</h4>
+            <div class="form-group">
+                <label>Nombre</label>
+                @Html.TextBoxFor(m => m.NombreCliente, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Teléfono</label>
+                @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Email (opcional)</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+
+            <h4>Detalles</h4>
+            <div class="form-group">
+                <label>Destino</label>
+                @Html.DropDownListFor(m => m.DestinoId, Model.Destinos, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Vehículo</label>
+                @Html.DropDownListFor(m => m.VehiculoId, Model.Vehiculos, "Seleccione...", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Pasajeros</label>
+                @Html.TextBoxFor(m => m.Pasajeros, new { @class = "form-control", type = "number", min = "1" })
+            </div>
+
+            <div class="form-group">
+                <label>Precio estimado</label>
+                @Html.TextBoxFor(m => m.PrecioEstimado, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Disponibilidad</h4>
+
+            <div class="form-group">
+                <label>Fecha</label>
+                @Html.TextBoxFor(m => m.Fecha, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                <small class="text-muted">Tip: cambia la fecha y vuelve a abrir la pantalla si quieres (para MVP).</small>
+            </div>
+
+            <div class="form-group">
+                <label>Hora</label>
+                @Html.DropDownListFor(m => m.Hora, new SelectList(Model.SlotsDisponibles, "Hora", "Hora"),
+               "Seleccione una hora...", new { @class = "form-control" })
+            </div>
+
+            <p>
+                <strong>Slots libres:</strong> @Model.SlotsDisponibles.Count
+            </p>
+
+            <button class="btn btn-success" type="submit">Confirmar reserva</button>
+        </div>
+    </div>
+}
+

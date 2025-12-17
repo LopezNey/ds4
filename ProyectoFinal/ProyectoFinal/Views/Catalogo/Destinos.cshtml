@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Destinos";
+}
+
+<h2>Destinos recurrentes</h2>
+
+<div class="row">
+    @foreach (var d in Model)
+    {
+        <div class="col-md-4" style="margin-bottom:20px;">
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding:0;">
+                    <img src="@(string.IsNullOrEmpty(d.ImagenUrl) ? "/Content/img/placeholder-destino.jpg" : d.ImagenUrl)"
+                         class="img-responsive"
+                         style="height:180px; width:100%; object-fit:cover;" />
+                </div>
+                <div class="panel-heading">
+                    <strong>@d.Nombre</strong> <span class="text-muted">(@d.Zona)</span>
+                </div>
+                <div class="panel-body">
+                    <p>@d.Descripcion</p>
+                    <a class="btn btn-primary btn-sm"
+                       href="@Url.Action("Index","Cotizar", new { destinoId = d.Id })">
+                        Cotizar
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

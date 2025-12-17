@@ -1,0 +1,41 @@
+﻿@model ProyectoFinal.Models.CotizacionViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cotiza tu transporte</h2>
+
+@using (Html.BeginForm("Index", "Cotizar", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Destino</label>
+        @Html.DropDownListFor(m => m.DestinoId, Model.Destinos, "Seleccione...", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Tipo de vehículo</label>
+        @Html.DropDownListFor(m => m.TipoVehiculo, Model.TiposVehiculo, "Seleccione...", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Pasajeros</label>
+        @Html.TextBoxFor(m => m.Pasajeros, new { @class = "form-control", type = "number", min = "1" })
+    </div>
+
+    <button class="btn btn-primary" type="submit">Calcular</button>
+}
+
+@if (Model.Precio.HasValue)
+{
+    <hr />
+    <div class="alert alert-success">
+        <h4>Precio estimado: $@Model.Precio.Value</h4>
+        <a class="btn btn-success"
+           href="@Url.Action("Crear","Reservas", new { destinoId = Model.DestinoId, tipoVehiculo = Model.TipoVehiculo, precio = Model.Precio.Value })">
+            Reservar
+        </a>
+    </div>
+}

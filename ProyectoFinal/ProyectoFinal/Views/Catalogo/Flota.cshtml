@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Flota";
+}
+
+<h2>Flota disponible</h2>
+
+<div class="row">
+    @foreach (var v in Model)
+     {
+        <div class="col-md-4" style="margin-bottom:20px;">
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding:0;">
+                    <img src="@(string.IsNullOrEmpty(v.FotoUrl) ? "/Content/img/placeholder-car.jpg" : v.FotoUrl)"
+                         class="img-responsive"
+                         style="height:180px; width:100%; object-fit:cover;" />
+                </div>
+                <div class="panel-heading">
+                    <strong>@v.Nombre</strong> <span class="text-muted">(@v.Tipo)</span>
+                </div>
+                <div class="panel-body">
+                    <p><b>Capacidad:</b> @v.Capacidad pax</p>
+                    <p><b>Maletas:</b> @v.Maletas</p>
+                    <p><b>Base:</b> $@v.PrecioBase</p>
+
+                    <a class="btn btn-primary btn-sm"
+                       href="@Url.Action("Index","Cotizar", new { tipoVehiculo = v.Tipo })">
+                        Cotizar
+                    </a>
+                </div>
+            </div>
+        </div>
+     }
+</div>
+
